@@ -17,8 +17,9 @@ void serial_flush( void )
 {
 	uint8_t x;
 	
-	while (UCSR1A & _BV(RXC1))
+	while (UCSR1A & _BV(RXC1)) {
 		x = UDR1;
+	}		
 }
 
 /* Send the serial port buffer */
@@ -26,10 +27,8 @@ void serial_write(void) {
 	uint8_t i;
 	
 	for (i = 0; i < SERIAL_BUFFER_SIZE && serial_buffer_out[i] != 0x00; i++) {
-		// Wait for the port to be ready
 		loop_until_bit_is_set(UCSR1A, UDRE1);
 
-		/* Put data into buffer, sends the data */
 		UDR1 = serial_buffer_out[i];
 	}
 }
@@ -61,8 +60,8 @@ void serial_send(void) {
 }
 
 /*
- * Read a line from the serial port. We deal with buffer overflows here,
- * but it's up to the caller to determine whether the buffer is truly valid.
+ * Read a line from the serial port. We deal with buffer overflows here, but
+ * it's up to the caller to determine whether the buffer is actually valid.
  */
 uint8_t serial_read(void) {
 	uint8_t c;

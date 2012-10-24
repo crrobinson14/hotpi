@@ -16,17 +16,9 @@ c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtool
 Allocating common symbols
 Common symbol       size              file
 
-button2_debounce    0x1               teensy.o
-button1_pressed     0x1               teensy.o
-serial_buffer       0x14              teensy.o
 serial_bytes_in     0x1               serial.o
 serial_buffer_in    0x20              serial.o
-button3_pressed     0x1               teensy.o
-button2_pressed     0x1               teensy.o
-serial_count        0x1               teensy.o
 input_values        0x3               inputs.o
-button3_debounce    0x1               teensy.o
-button1_debounce    0x1               teensy.o
 serial_buffer_out   0x20              serial.o
 adc_values          0x16              adc.o
 
@@ -147,7 +139,7 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x5b0
+.text           0x00000000      0x562
  *(.vectors)
  .vectors       0x00000000       0xac c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
                 0x00000000                __vector_default
@@ -246,51 +238,48 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x000000e6                __vector_18
                 0x000000e6                __vector_20
                 0x000000e6                __vector_42
- .text          0x000000ea      0x116 adc.o
-                0x000000ea                adc_read_all
-                0x000001de                adc_init
- .text          0x00000200       0x80 inputs.o
-                0x00000200                inputs_read
-                0x00000272                inputs_init
- .text          0x00000280       0xcc outputs.o
-                0x00000280                outputs_process
-                0x00000336                outputs_init
- .text          0x0000034c      0x114 serial.o
-                0x0000034c                serial_flush
-                0x0000035c                serial_write
-                0x0000037c                serial_send
-                0x0000040a                serial_read
-                0x00000440                serial_init
- .text          0x00000460       0x3e teensy.o
-                0x00000460                timer_read
-                0x00000466                get_timer
-                0x0000047e                init_lcd
- .text          0x0000049e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .text          0x0000049e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .text          0x0000049e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
- .text          0x0000049e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(itoa.o)
- .text          0x0000049e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(strrev.o)
- .text          0x0000049e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000049e                . = ALIGN (0x2)
+ .text          0x000000ea      0x100 adc.o
+                0x000000ea                adc_read_next
+                0x000001c8                adc_init
+ .text          0x000001ea       0x80 inputs.o
+                0x000001ea                inputs_read
+                0x0000025c                inputs_init
+ .text          0x0000026a       0xcc outputs.o
+                0x0000026a                outputs_process
+                0x00000320                outputs_init
+ .text          0x00000336      0x114 serial.o
+                0x00000336                serial_flush
+                0x00000346                serial_write
+                0x00000366                serial_send
+                0x000003f4                serial_read
+                0x0000042a                serial_init
+ .text          0x0000044a        0x0 teensy.o
+ .text          0x0000044a        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .text          0x0000044a        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x0000044a        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .text          0x0000044a        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .text          0x0000044a        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .text          0x0000044a        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000044a                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x0000049e       0x84 teensy.o
-                0x0000049e                main
- .text.libgcc   0x00000522        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000522        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000522        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .text.startup  0x0000044a       0x8a teensy.o
+                0x0000044a                main
+ .text.libgcc   0x000004d4        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000004d4        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000004d4        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x00000522       0x42 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x00000522                itoa
+                0x000004d4       0x42 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x000004d4                itoa
  .text.avr-libc
-                0x00000564       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00000564                strrev
- .text.libgcc   0x00000584       0x28 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000584                __udivmodhi4
-                0x000005ac                . = ALIGN (0x2)
+                0x00000516       0x20 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000516                strrev
+ .text.libgcc   0x00000536       0x28 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000536                __udivmodhi4
+                0x0000055e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000005ac        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
-                0x000005ac                _exit
-                0x000005ac                exit
+ .fini9         0x0000055e        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+                0x0000055e                _exit
+                0x0000055e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -309,11 +298,11 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000005ac        0x4 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000055e        0x4 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000005b0                _etext = .
+                0x00000562                _etext = .
 
-.data           0x00800100        0x0 load address 0x000005b0
+.data           0x00800100        0x0 load address 0x00000562
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
@@ -336,50 +325,41 @@ LOAD c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x00800100                _edata = .
                 0x00800100                PROVIDE (__data_end, .)
 
-.bss            0x00800100       0x78
+.bss            0x00800100       0x5e
                 0x00800100                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800100        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5/crtm32u4.o
- .bss           0x00800100        0x0 adc.o
- .bss           0x00800100        0x3 inputs.o
- .bss           0x00800103        0x0 outputs.o
- .bss           0x00800103        0x0 serial.o
- .bss           0x00800103        0x0 teensy.o
- .bss           0x00800103        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
- .bss           0x00800103        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800103        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
- .bss           0x00800103        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(itoa.o)
- .bss           0x00800103        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(strrev.o)
- .bss           0x00800103        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800100        0x1 adc.o
+ .bss           0x00800101        0x3 inputs.o
+ .bss           0x00800104        0x0 outputs.o
+ .bss           0x00800104        0x0 serial.o
+ .bss           0x00800104        0x0 teensy.o
+ .bss           0x00800104        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00800104        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800104        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800104        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .bss           0x00800104        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .bss           0x00800104        0x0 c:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr5\libgcc.a(_udivmodhi4.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x00800103       0x16 adc.o
-                0x00800103                adc_values
- COMMON         0x00800119        0x3 inputs.o
-                0x00800119                input_values
- COMMON         0x0080011c       0x41 serial.o
-                0x0080011c                serial_bytes_in
-                0x0080011d                serial_buffer_in
-                0x0080013d                serial_buffer_out
- COMMON         0x0080015d       0x1b teensy.o
-                0x0080015d                button2_debounce
-                0x0080015e                button1_pressed
-                0x0080015f                serial_buffer
-                0x00800173                button3_pressed
-                0x00800174                button2_pressed
-                0x00800175                serial_count
-                0x00800176                button3_debounce
-                0x00800177                button1_debounce
-                0x00800178                PROVIDE (__bss_end, .)
-                0x000005b0                __data_load_start = LOADADDR (.data)
-                0x000005b0                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800104       0x16 adc.o
+                0x00800104                adc_values
+ COMMON         0x0080011a        0x3 inputs.o
+                0x0080011a                input_values
+ COMMON         0x0080011d       0x41 serial.o
+                0x0080011d                serial_bytes_in
+                0x0080011e                serial_buffer_in
+                0x0080013e                serial_buffer_out
+                0x0080015e                PROVIDE (__bss_end, .)
+                0x00000562                __data_load_start = LOADADDR (.data)
+                0x00000562                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800178        0x0
-                0x00800178                PROVIDE (__noinit_start, .)
+.noinit         0x0080015e        0x0
+                0x0080015e                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800178                PROVIDE (__noinit_end, .)
-                0x00800178                _end = .
-                0x00800178                PROVIDE (__heap_start, .)
+                0x0080015e                PROVIDE (__noinit_end, .)
+                0x0080015e                _end = .
+                0x0080015e                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

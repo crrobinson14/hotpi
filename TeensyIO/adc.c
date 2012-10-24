@@ -1,17 +1,5 @@
 /*
  * adc.c
-
-PF0/ADC0
-PF1/ADC1
-PF4/ADC4
-PF5/ADC5
-PF6/ADC6
-PF7/ADC7
-PD4/ADC8
-PD6/ADC9
-PD7/ADC10
-PB4/ADC11
-
  */ 
 
 #include "teensy.h"
@@ -20,6 +8,9 @@ uint16_t adc_values[ADC_COUNT];
 
 /* Read a channel from the ADC bank */
 static void adc_read(uint8_t channel) {
+	// PF0/ADC0, PF1/ADC1, PF4/ADC4, PF5/ADC5, PF6/ADC6
+	// PF7/ADC7, PD4/ADC8, PD6/ADC9, PD7/ADC10, PB4/ADC11
+
 	// We have to do this with a switch statement because the
 	// MUX has some wacky behaviors - MUX5 is in a different
 	// register from MUX0..4. Also, we call channel 10 a fake
@@ -59,12 +50,15 @@ static void adc_read(uint8_t channel) {
 	adc_values[channel] |= (ADCH << 8);
 }
 
-/* Read all ADC values */
-void adc_read_all(void) {
-	uint8_t i;
+/* Read the next ADC value, in rotation */
+void adc_read_next(void) {
+	static uint8_t next_read = 0;
 	
-	for (i = 0; i < ADC_COUNT; i++) {
-		adc_read(i);
+	adc_read(next_read);
+	
+	next_read++;
+	if (next_read >= ADC_COUNT) {
+		next_read = 0;
 	}
 }
 

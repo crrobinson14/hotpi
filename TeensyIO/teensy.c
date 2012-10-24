@@ -5,6 +5,7 @@
 
 #include "teensy.h"
 
+/*
 uint16_t timer_read() {
 	uint16_t i;
 	
@@ -25,15 +26,13 @@ void init_lcd(void) {
 	
 	_delay_ms(500);
 }
-
-uint8_t button1_debounce, button2_debounce, button3_debounce;
-uint8_t button1_pressed, button2_pressed, button3_pressed;
-uint8_t serial_count;
-uint8_t serial_buffer[20];
+*/
 
 /* Main entry point */
 int main(void)
 {
+	uint8_t slow = 0;
+	
 	// Allow the power supply to settle down
 	clock_prescale_set(clock_div_128);
 	_delay_ms(10);
@@ -48,23 +47,31 @@ int main(void)
 	_delay_ms(100);
 	
     while(1) {
-		_delay_ms(900); // Check against 9600 baud?
+		_delay_ms(50);
 
-		// Read all ADC channels and buttons		
-		adc_read_all();
+		// We read the buttons on a fast timer so we can get fast
+		// reaction times. We debounce them in the reader.
 		inputs_read();
-		
-		// Send our status string
-		serial_send();
-		
-		// Process any incoming commands
-		if (serial_read()) {
-			switch (serial_buffer_in[0]) {
-				case 'O': outputs_process(); break;
-				default: break;
-			}
 
-			serial_bytes_in = 0;
+		// The rest of the routines we do less often.
+		if (slow++ >= 36) {
+			slow = 0;		
+		
+			// Read the next ADC channel, in rotation
+			adc_read_next();
+		
+			// Send our status string
+			serial_send();
+		
+			// Process any incoming commands
+			if (serial_read()) {
+				switch (serial_buffer_in[0]) {
+					case 'O': outputs_process(); break;
+					default: break;
+				}
+
+				serial_bytes_in = 0;
+			}
 		}
     }
 }

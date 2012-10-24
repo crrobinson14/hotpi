@@ -70,8 +70,14 @@ void outputs_process(void) {
 /* Configure output settings */
 void outputs_init(void) {
 	// Set up the pins we want configured as outputs
-	DDRB |= _BV(DDB0) | _BV(DDB1) | _BV(DDB3) | _BV(DDB6) | _BV(DDB7);
-	DDRD |= _BV(DDD0) | _BV(DDD1) | _BV(DDD5);
+	DDRB |= _BV(DDB0) |
+	        _BV(DDB1) |
+		    _BV(DDB3) |
+			_BV(DDB6) |
+			_BV(DDB7);
+	DDRD |= _BV(DDD0) |
+	        _BV(DDD1) |
+			_BV(DDD5);
 	DDRE |= _BV(DDE6);
 	
 	// Set our initial outputs to OFF for safety
