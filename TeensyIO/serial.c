@@ -50,6 +50,7 @@ void serial_send(void) {
 	for (i = 0; i < INPUT_COUNT; i++) {
 		serial_buffer_out[0] = ',';
 		itoa(input_values[i], &serial_buffer_out[1], 10);
+		input_values[i] = 0;
 		serial_write();
 	}
 	
@@ -63,24 +64,29 @@ void serial_send(void) {
  * Read a line from the serial port. We deal with buffer overflows here, but
  * it's up to the caller to determine whether the buffer is actually valid.
  */
-uint8_t serial_read(void) {
+void serial_read(void) {
 	uint8_t c;
 	
 	while (UCSR1A & _BV(RXC1)) {
 		c = UDR1;
+		/*
+		serial_buffer_out[0] = c;
+		serial_buffer_out[1] = '\r';
+		serial_buffer_out[2] = '\n';
+		serial_buffer_out[3] = 0x00;
+		serial_write();
+*/		
+		if (c == '\r' || c == '\n') return;
 		
 		// Save the character, and see if it completes our string
 		serial_buffer_in[serial_bytes_in] = c;
-		if (c == '\n') return 1;
-		
-		// Otherwise, keep reading characters while we can.
 		serial_bytes_in++;
+
+		// Otherwise, keep reading characters while we can.
 		if (serial_bytes_in >= SERIAL_BUFFER_SIZE) {
 			serial_bytes_in = 0;
 		}
 	}
-	
-	return 0;
 }
 
 void serial_init(void) {

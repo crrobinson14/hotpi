@@ -8,7 +8,7 @@
 
 extern void serial_init(void);
 extern void serial_send(void);
-extern uint8_t serial_read(void);
+extern void serial_read(void);
 
 extern uint8_t serial_buffer_out[32];
 
