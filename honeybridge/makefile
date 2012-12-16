@@ -1,7 +1,7 @@
 CC=gcc
 
 TARGET=honeybridge
-OBJS=main.o utils.o logging.o
+OBJS=main.o utils.o logging.o serial.o
 DEPS=*.h
 LIBS=
 
