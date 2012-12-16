@@ -36,14 +36,15 @@ extern void log_msg(int level, const char *func, int flush, char *fmt, ...) __at
 #define DEBUG(sync, format, args...) log_msg(LOG_DEBUG, __FUNCTION__, sync, format , ## args);
 
 // Utils
-void daemonize(void);
-__u32 hex_to_int(char *buffer, int len);
-__u32 ascii_to_int(char *buffer, int len);
+extern void daemonize(void);
+extern __u32 hex_to_int(char *buffer, int len);
+extern __u32 ascii_to_int(char *buffer, int len);
 
 // Serial I/O
-void read_serial(int fd);
-int serial_init(char *port);
+extern void read_serial(int fd);
+extern int serial_init(char *port);
 
+// Enviracom
 typedef struct enviramsg {
   __u8 priority;   // 0 = low, 0x40 = medium, 0x80 = high
   __u16 type;
@@ -66,7 +67,9 @@ typedef struct envirahdr {
   char spc4;          // _
   char length[2];     // 05
   char spc5;
-  char payload;
+  char payload[64];
 } ENVIRAHDR;
+
+extern void process_enviracom(ENVIRAMSG *msg);
 
 #endif

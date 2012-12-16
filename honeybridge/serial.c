@@ -1,53 +1,11 @@
 #include "honeybridge.h"
 
-/**
- *
-
- // Circulator off
->M 3180 3D R 01 00 8D
- // Circulator on
->M 3180 3D R 01 C8 45
-
- // Temperature. 0x2256 / 55.5555 + 32 = 190 degF
- // 0x2256 / 100 = 88 degC
->M 3200 3D R 02 22 56 79
-
->[Idle]
-
-
->M 3114 3D R 03 04 FC 10 F3
-
->M 3E70 11 R 05 00 00 01 80 0C D7
- >M 3114 3D R 03 01 C8 11 C3
- >M 3E70 11 R 05 00 00 01 80 0C D7
- *
- *
- *>M 1081 3D R 05 23 64 02 30 00 DC
- *
- *>M 3200 3D R 02 1A 22 35
-
->M 3180 3D R 01 C8 45
-
->M 3114 3D R 03 01 C8 11 C3
-
->M 3E70 11 R 05 C8 00 08 80 0C 16
-
->M 1085 3D R 08 28 C8 10 EA 05 6E 02 30 E3
-
->M 1084 3D R 08 2D 32 15 40 04 56 01 18 A0
-
->M 1082 3D R 05 1B C6 02 30 00 45
-
->M 1081 3D R 05 23 64 02 30 00 DC
- */
-
 static char serial_buffer[BUFFER_SIZE];
 static int in_buffer = 0;
-
 static ENVIRAMSG emsg;
 
 int handle_msg(char *msg, int bytes) {
-  int length;
+  int length, i;
   char *end;
   ENVIRAHDR *hdr;
 
@@ -83,14 +41,12 @@ int handle_msg(char *msg, int bytes) {
       emsg.instance = hex_to_int(hdr->instance, sizeof(hdr->instance));
       emsg.command = (hdr->command == 'Q') ? 0x00 : (hdr->command == 'R' ? 0x40 : 0x80);
       emsg.length = hex_to_int(hdr->length, sizeof(hdr->length));
-
-
-      // We only know how to process 'R' status messages
-      if (msg[10] != 'R') {
-        return bytes;
+      for (i = 0; i < emsg.length && i < sizeof(emsg.payload); i++) {
+        emsg.payload[i] = hex_to_int(&hdr->payload[i * 3], 2);
       }
 
-      // Do we have the full message?
+      process_enviracom(&emsg);
+
       return length;
 
     // Unknown message - probably started mid-stream. Discard to sync up
@@ -111,9 +67,11 @@ void read_serial(int fd) {
     ERROR(1, "Error reading from serial port: %d (%s)\n", errno, strerror(errno));
   } else {
     for (i = 0; i < bytes; i++) {
-      printf("%c", serial_buffer[i]);
+      fwrite(&serial_buffer[in_buffer], 1, bytes, stdout);
       fflush(stdout);
     }
+
+    in_buffer += bytes;
   }
 
   if (in_buffer > 0) {
