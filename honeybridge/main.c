@@ -6,13 +6,13 @@ int main(int argc, char *argv[]) {
   int max_fd, serial_fd, n;
 
   log_init();
-  daemonize();
 
   if (argc < 2) {
     printf("Usage: honeybridge /dev/ttyUSB0\n");
     return -1;
   }
 
+  daemonize();
   max_fd = serial_fd = serial_init(argv[1]);
 
   // Main loop
