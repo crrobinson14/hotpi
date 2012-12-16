@@ -56,7 +56,7 @@ int handle_msg(char *msg, int bytes) {
 }
 
 void read_serial(int fd) {
-  int bytes, i, total, proc;
+  int bytes, total, proc;
 
   // Data on the serial port
   ioctl(fd, FIONREAD, &bytes);
@@ -66,10 +66,8 @@ void read_serial(int fd) {
   if (bytes == -1) {
     ERROR(1, "Error reading from serial port: %d (%s)\n", errno, strerror(errno));
   } else {
-    for (i = 0; i < bytes; i++) {
-      fwrite(&serial_buffer[in_buffer], 1, bytes, stdout);
-      fflush(stdout);
-    }
+    fwrite(&serial_buffer[in_buffer], 1, bytes, stdout);
+    fflush(stdout);
 
     in_buffer += bytes;
   }
