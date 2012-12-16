@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
   int max_fd, serial_fd, n;
 
   log_init();
-  // daemonize();
+  daemonize();
 
   if (argc < 2) {
     printf("Usage: honeybridge /dev/ttyUSB0\n");
