@@ -1,7 +1,6 @@
 #include "honeybridge.h"
 
-#define LOG_BUF_SIZE 1024
-char log_buffer[LOG_BUF_SIZE];
+char log_buffer[BUFFER_SIZE];
 
 void log_init(void)
 {
@@ -33,7 +32,7 @@ void log_msg(int level, const char *func, int flush, char *fmt, ...)
 	}
 
 	va_start(ap, fmt);
-	bufchars += vsnprintf(&log_buffer[bufchars], (LOG_BUF_SIZE)-bufchars, fmt, ap);
+	bufchars += vsnprintf(&log_buffer[bufchars], (BUFFER_SIZE)-bufchars, fmt, ap);
 	va_end(ap);
 
 	bufchars++;
