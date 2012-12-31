@@ -1,4 +1,5 @@
 .DS_Store
+~*~
 
 # Compiled Object files
 *.slo
@@ -18,4 +19,6 @@ src/baker/hotpi-baker
 src/filling/hotpi-filling
 src/harvest/hotpi-harvest
 src/honeybee/hotpi-honeybee
+src/crust/Debug
+src/crust/Release
 honeybridge/honeybridge
