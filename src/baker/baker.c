@@ -16,3 +16,9 @@
  * this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
+#include "baker.h"
+
+int main(int argc, char *argv[]) {
+  return 0;
+}
