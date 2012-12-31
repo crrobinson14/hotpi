@@ -14,4 +14,8 @@
 *.a
 
 # Binaries
+src/baker/hotpi-baker
+src/filling/hotpi-filling
+src/harvest/hotpi-harvest
+src/honeybee/hotpi-honeybee
 honeybridge/honeybridge
