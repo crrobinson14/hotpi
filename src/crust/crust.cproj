@@ -71,6 +71,12 @@
     <Compile Include="crust.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="zone.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="zone.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="serial.c">
       <SubType>compile</SubType>
     </Compile>

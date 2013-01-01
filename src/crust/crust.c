@@ -26,7 +26,8 @@ int main(void)
 	clock_prescale_set(clock_div_1);
 	
 	// Initialize our subsystems
-	serial_init();
+	zone_init();
+	serial_init();	
 
 	_delay_ms(100);
 

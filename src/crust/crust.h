@@ -13,5 +13,6 @@
 #include <avr/sfr_defs.h>
 
 #include "serial.h"
+#include "zone.h"
 
 #endif
