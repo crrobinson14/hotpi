@@ -1,7 +1,7 @@
 CC=gcc
 
 TARGET=hotpi-filling
-OBJS=filling.o
+OBJS=filling.o serial.o
 DEPS=*.h ../lib/libhotpi.a
 LIBS=-lhotpi
 

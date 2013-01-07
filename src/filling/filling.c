@@ -1,5 +1,5 @@
 /**
- * Baker - HotPi zone controller server-side bridge (talks to Crust via RS-485)
+ * Filling - HotPi zone controller server-side bridge (talks to Crust via RS-485)
  * Copyright (c) 2012-2013 Chad Robinson
  *
  * This program is free software: you can redistribute it and/or modify it

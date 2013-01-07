@@ -3,4 +3,6 @@
 
 #include "hotpi.h"
 
+#define BUFFER_SIZE 256
+
 #endif
