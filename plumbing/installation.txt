@@ -1,0 +1,170 @@
+Oil Boiler
+----------
+1. Install a pair of 1" Tees (A) on the inlet/outlet of the oil boiler. On the
+outlet side, this may also require a new 1" MIP to sweat (B).
+
+2. Plumb both Tees with 1" copper pipe (C) to a pair of 1" sweat-to-PEX adapters
+(D), then with 1" PEX (E) to a pair of ball valves (F).
+
+3. Cut the 1/2" cold water supply line to the furnace at a convenient spot along
+its horizontal run. Cut the pipe again in the vertical section to remove the
+double-elbow transition from horizontal to vertical.
+
+4. Assemble a short "H" bypass with a ball valve (F) and two Tees (Q). Add a
+pair of ball valves (F) on the top of each leg.
+
+5. Solder a Tee (I) onto the horizontal run, then run a vertical pipe (J) to a
+1/2"-1" reducer (K) and fitting (D) into one leg of the bypass. Plumb the
+vertical inlet line to the other bypass leg using a reducer (K) and fitting (D).
+
+5. Cut the cold water inlet to the mixing valve just past the elbow below the
+valve. Cap (L) the remaining section past the low-water drain valve.
+
+6. De-solder the elbow from the cold water inlet to retain as much stub as
+possible, and clean up the end (discard the elbow). Rotate the stub to a
+45-degree angle and use a coupling (M) and elbow (N) to plumb this to the cold
+water supply Tee.
+
+7. Plumb PEX lines from all four ball valves over to the hot water storage tank
+using tube supports (O) and bend supports (P). On the boiler lines, install a
+pair of check valves (G) with fittings (H) such that the flow arrow points
+TOWARD the boiler on the HOT line, and the flow arrow points AWAY from the
+boiler on the COLD line.
+
+8. For now, close all four ball valves leading to the hot water storage tank,
+then open the ball valve between the Tees on the DHW coil inlet. Re-charge the
+system and verify that the oil boiler correctly heats the house and hot water.
+
+A - 2 - 1" Copper Tee - http://www.pexsupply.com/Cello-WPT-16-1-CxCxC-Tee-1056000-p
+B - 1 - 1" MIP to sweat - http://www.pexsupply.com/Cello-WP4-16-1-Copper-X-Male-Adapter-1024000-p
+C - 1 - 1" x 2' Copper Pipe - http://www.pexsupply.com/Kobe-Wieland-100-20-MCP-1-x-2-Type-M-Straight-Copper-Pipe
+D - 4 - 1" Sweat to PEX - http://www.pexsupply.com/HydroPEX-H021000-1-PEX-x-1-Copper-Pipe-Brass-Adapter-3755000-p
+E - 1 - 1" Barrier PEX - http://www.pexsupply.com/Rifeng-100-300-OXY-1-Oxygen-Barrier-PEX-Tubing-300-ft-Coil
+F - 5 - 1" Ball Valve - http://www.pexsupply.com/HydroPEX-H081000-1-PEX-x-1-PEX-Ball-Valve-5882000-p
+G - 2 - Check Valve - http://www.pexsupply.com/Hydrovalve-SC100T-1-Threaded-Swing-Check-Valve
+H - 4 - 1" MIP to PEX - http://www.pexsupply.com/HydroPEX-H031000-1-PEX-x-1-NPT-Brass-Male-Adapter-3747000-p
+I - 1 - 1/2" Copper Tee - http://www.pexsupply.com/Cello-WPT-08-1-2-CxCxC-Tee-1054000-p
+J - 1 - 5' 1/2" Copper Pipe - http://www.homedepot.com/h_d1/N-5yc1v/R-100558487/h_d2/ProductDisplay?catalogId=10053&langId=-1&keyword=mueller+1%2F2+in+copper&storeId=10051#.UEv3vKTC5e4
+K - 2 - 1/2" to 1" Sweat - http://www.pexsupply.com/Cello-WP0-16-08-1-x-1-2-CxC-Coupling-3588000-p
+L - 1 - 1/2" Cap - http://www.pexsupply.com/Cello-WP17-08-1-2-Copper-Cap-951000-p
+M - 1 - 1/2" Copper Coupling - http://www.pexsupply.com/Cello-WP0-08-1-2-CxC-Coupling-1188000-p
+N - 1 - 1/2" Elbow - http://www.pexsupply.com/Cello-WP7-08-1-2-CxC-90-Elbow-896000-p
+O - 1 - 1" Tube Support, Box - http://www.pexsupply.com/Sioux-Chief-555-4-Tube-Talon-for-1-PEX-Tubing-Bag-of-50-2207000-p
+P - 8 - 1" Bend Support - http://www.pexsupply.com/Viega-51060-1-PEX-Plastic-Bend-Support-12534000-p
+Q - 2 - 1" PEX Tee - http://www.pexsupply.com/HydroPEX-H051000-1-PEX-x-1-PEX-x-1-PEX-Brass-Tee-3728000-p
+
+Storage Tank
+------------
+1. Plumb the boiler "hot" line into the outlet side of an air scoop (A) using a
+pair of 1" fittings (B). Install a vent (C) and expansion tank (D) on the air
+scoop.
+
+2. On both hot and cold above the tank, add a pair of Tees (E) horizontally,
+with the stubs pointing down at a convenient point to run down to the tank. Put
+a ball valve (F) on the other side of each Tee. Do the same for the domestic hot
+water, but use elbows instead (G).
+
+3. Fabricate a DHW heat exchanger by cutting a 6-port manifold (H) in half and
+capping (I) one cut end, then installing a pair of sweat fittings (J). Cut one
+7' and two 8.5' lengths from a coil of 1/2" tubing (K) and solder these
+between the two manifolds, bending the two longer lengths outward as necessary.
+Suspend this coil in the tank approx. 6" below the top lip.
+
+4. Plumb this heat exchanger through two bends and a pair of elbows (G) out
+through holes in the top lip of the tank and then up to the DHW hot/cold lines.
+
+5. Fabricate the boiler heat exchanger coils by cutting the remaining tubing
+into two 18' lengths, and then the next coil into two 24' lengths and two 6'
+lengths. Coil these tubes as necessary to service the four corners and two long
+sides of the tank. Solder these to two more manifolds (H).
+
+6. Plumb both manifolds similarly to the DHW setup, using sweat fittings (J) to
+run the lines out to a pair of elbows (G), but add an additional elbow on the
+bottom (cold) line to make the direction change. Also, insulate (L) the cold
+line as much as possible. Run the "hot" line directly up to the appropriate Tee.
+
+7. On the cold side, run the line back down again outside the tank to a Tee (E)
+and then to a pair of elbows (G) to create two branches. Connect one leg to a
+zone valve (M) using a pair of fittings (B), with the flow direction pointing
+DOWN. Connect the other leg to a circulator (N) using a pair of flanges (O)
+and fittings (B).
+
+8. Connect both branches down to the stubs of a pair of Tees (E). Connect these
+Tees together, then run one line to a ball valve (F) low point drain, and the
+other through an elbow (G) and up to the hot-line Tee.
+
+9. Use 1/2" CPVC tubing plus Tee and Elbow fittings to build a support framework
+for the heat exchangers. Then build two 1" CPVC stubs with elbows through the
+top lip of the tank. One stub should go nearly to the bottom of the tank
+(intake) while the other should end as close to the top of the tank as possible.
+
+10. Build a thermostat dip tube from 1/2" CPVC by capping one end and using an
+elbow on the other. Install two temperature sensors in the tube, one near the
+top and the other near the bottom, with heat-shrink on the connections to
+prevent them from shorting one another out. Fill the tube with mineral oil.
+
+11. Seal all tank holes with silicone. Slowly charge each heat exchanger and
+check carefully for leaks. Fix any leaks, using compressed air to blow out the
+lines if necessary. Then fill the tank and check the tank itself for leaks. Once
+everything is ready to go, close back off the oil burner heat lines but leave
+the DHW lines open.
+
+A - 1 - Air Scoop - http://www.pexsupply.com/Taco-431-6-1-Air-Scoop-3512000-p
+B - 6 - 1" MIP to PEX - http://www.pexsupply.com/HydroPEX-H031000-1-PEX-x-1-NPT-Brass-Male-Adapter-3747000-p
+C - 1 - Air Vent - http://www.pexsupply.com/Taco-400-4-1-8-Hy-Vent
+D - 1 - Exp. Tank - http://www.ebay.com/itm/Flexcon-HTX-30-4-1-2-gal-Hydronic-Expansion-Tank-/130746785428?pt=LH_DefaultDomain_0&hash=item1e711d9e94#ht_720wt_1399
+E - 5 - 1" PEX Tee - http://www.pexsupply.com/HydroPEX-H051000-1-PEX-x-1-PEX-x-1-PEX-Brass-Tee-3728000-p
+F - 3 - 1" Ball Valve - http://www.pexsupply.com/HydroPEX-H081000-1-PEX-x-1-PEX-Ball-Valve-5882000-p
+G - 10 - 1" PEX Elbow - http://www.pexsupply.com/HydroPEX-H001000-1-PEX-x-1-PEX-Brass-Elbow-3701000-p
+H - 3 - 6-port Manifold - http://www.ebay.com/itm/6-Outlet-Copper-Manifold-by-Alberta-Custom-Tee-1-x-6-1-2-Ports-/190663487818?pt=LH_DefaultDomain_0&hash=item2c646df14a#ht_1972wt_1163
+I - 1 - 1" Cap - http://www.pexsupply.com/Cello-WP17-16-1-Copper-Cap-953000-p
+J - 4 - 1" Sweat to PEX - http://www.pexsupply.com/HydroPEX-H021000-1-PEX-x-1-Copper-Pipe-Brass-Adapter-3755000-p
+K - 2 - 1/2" 60' Tubing - http://www.homedepot.com/Plumbing-Pipes-Fittings-Valves-Copper-Pipe-Fittings-Pipe/h_d1/N-25ecodZ5yc1vZ25ecodZ25ecodZ25ecodZbuyt/R-202504352/h_d2/ProductDisplay?catalogId=10053&langId=-1&keyword=1%2F2%22+copper+tubing&storeId=10051#.UEVw9t1lR2E
+L - ? - Insulation - http://www.lowes.com/pd_24434-1410-P12XB/6_0__?productId=3133247
+M - 1 - Zone Valve - http://www.pexsupply.com/Taco-Z100T2-1-1-Zone-Sentry-Valve-Threaded
+N - 1 - Taco 007 - http://www.pexsupply.com/Taco-007-F5-007-Cast-Iron-Circulator-1-25-HP-1983000-p
+O - 1 - Taco Flange - http://www.pexsupply.com/Taco-110-252F-1-Taco-Iron-Freedom-Flange-Pair-1974000-p
+
+
+Wood Boiler
+-----------
+1. Plumb the hot-side line above the wood boiler and into a Tee (A) with the
+stub pointing to the right. Connect the bottom of the Tee into the boiler via
+a threaded fitting (B). Stub the Tee over to the right side of the boiler,
+through an elbow, and down to a zone valve (D) via a pair of fittings (B).
+The flow direction on the zone valve should point down.
+
+2. Plumb the cold-side line across to the right side of the wood boiler and
+down nearly (6") to the floor, into the stub of a Tee (A). Connect the right
+side of the Tee to a ball valve (E) low point drain. Connect the left side to
+the right side of another Tee (A). The stub of this Tee should connect to the
+zone valve from Step 1 above.
+
+3. Connect the next leg of the tees into an elbow and up into a circulator (F)
+via a flange (G) and a pair of fittings (B). Support the circulator with a block
+of wood.
+
+4. Connect the top of the circulator through a pair of elbows (C) around the
+back of the wood boiler and into a Tee (A) and a final elbow (C) and into the
+inlets of the boiler via a pair of fittings (B).
+
+5. Install a relief valve on a short iron pipe stub in the pressure-relief hole
+on top of the boiler.
+
+6. Connect the boiler's flue as required.
+
+7. Fill the boiler with water and check for leaks in the entire system. Then
+test fire the boiler with a SMALL load of wood with a thermometer in the
+temperature well in the top of the water jacket. If the temperature reaches an
+unacceptable level, force the circulator to turn on and dump heat into the water
+tank.
+
+A - 4 - 1" PEX Tee - http://www.pexsupply.com/HydroPEX-H051000-1-PEX-x-1-PEX-x-1-PEX-Brass-Tee-3728000-p
+B - 7 - 1" MIP to PEX - http://www.pexsupply.com/HydroPEX-H031000-1-PEX-x-1-NPT-Brass-Male-Adapter-3747000-p
+C - 4 - 1" PEX Elbow - http://www.pexsupply.com/HydroPEX-H001000-1-PEX-x-1-PEX-Brass-Elbow-3701000-p
+D - 1 - Zone Valve - http://www.pexsupply.com/Taco-Z100T2-1-1-Zone-Sentry-Valve-Threaded
+E - 3 - 1" Ball Valve - http://www.pexsupply.com/HydroPEX-H081000-1-PEX-x-1-PEX-Ball-Valve-5882000-p
+F - 1 - Taco 007 - http://www.pexsupply.com/Taco-007-F5-007-Cast-Iron-Circulator-1-25-HP-1983000-p
+G - 1 - Taco Flange - http://www.pexsupply.com/Taco-110-252F-1-Taco-Iron-Freedom-Flange-Pair-1974000-p
+H - 1 - Relief Valve - Home Depot
+Z - 1 - 3/4" Iron Pipe - Home Depot
