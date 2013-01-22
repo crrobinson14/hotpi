@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 #include "crust.h"
 
 int main(void)
@@ -24,15 +24,24 @@ int main(void)
 	clock_prescale_set(clock_div_128);
 	_delay_ms(10);
 	clock_prescale_set(clock_div_1);
-	
+
 	// Initialize our subsystems
 	zone_init();
-	serial_init();	
+	serial_init();
 
 	_delay_ms(100);
 
-    while(1)
-    {
-        //TODO:: Please write your application code 
-    }
+	while(1) {
+		// Check the zone pins
+		zone_read();
+
+		// serial_send() checks the timer to see if it should actually do its thing.
+		serial_send();
+
+		// Get whatever bytes we can from the serial port.
+		serial_read();
+
+		// See if we have a complete message.
+		zone_set();
+	}
 }
