@@ -20,5 +20,7 @@
 #include "filling.h"
 
 int main(int argc, char *argv[]) {
+  int serial_fd = serial_init("/dev/ttyAMA0");
+
   return 0;
 }

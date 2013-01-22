@@ -5,4 +5,6 @@
 
 #define BUFFER_SIZE 256
 
+extern int serial_init(char *port);
+
 #endif
