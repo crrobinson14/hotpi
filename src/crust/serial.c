@@ -18,8 +18,6 @@
 
 #include "crust.h"
 
-#define SERIAL_BUFFER_SIZE 32
-
 // There's really no sense passing these around as pointers on a microcontroller
 uint8_t serial_bytes_out;
 uint8_t serial_buffer_out[SERIAL_BUFFER_SIZE];

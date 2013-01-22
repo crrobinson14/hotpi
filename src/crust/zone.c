@@ -38,7 +38,7 @@ void zone_read(void) {
 /**
  * Force a given zone on or off.
  */
-void zone_force(uint8_t zone, uint8_t state) {
+void zone_force_set(uint8_t zone, uint8_t state) {
 	uint8_t reg, pin;
 
 	switch (zone) {
@@ -83,9 +83,9 @@ void zone_set() {
 			// Set the zones as demanded
 			for (i = 1; i <= 8; i++) {
 				if (serial_buffer_in[i] == '0') {
-					zone_force(i, 0);
+					zone_force_set(i, 0);
 				} else if (serial_buffer_in[i] == '0') {
-					zone_force(i, 1);
+					zone_force_set(i, 1);
 				}
 			}
 
