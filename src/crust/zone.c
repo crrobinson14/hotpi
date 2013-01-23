@@ -42,22 +42,15 @@ void zone_force_set(uint8_t zone, uint8_t state) {
 	uint8_t reg, pin;
 
 	switch (zone) {
-		case 1: reg = PORTF; pin = PORTF0; break;
-		case 2: reg = PORTF; pin = PORTF1; break;
-		case 3: reg = PORTF; pin = PORTF4; break;
-		case 4: reg = PORTF; pin = PORTF5; break;
-		case 5: reg = PORTF; pin = PORTF6; break;
-		case 6: reg = PORTF; pin = PORTF7; break;
-		case 7: reg = PORTC; pin = PORTC6; break;
-		case 8: reg = PORTC; pin = PORTC7; break;
-		default:
-			return;
-	}
-
-	if (state) {
-		reg |= _BV(pin);
-	} else {
-		reg &= ~(_BV(pin));
+		case 1: if (state) PORTF |= _BV(PORTF0); else PORTF &= ~(_BV(PORTF0)); break;
+		case 2: if (state) PORTF |= _BV(PORTF1); else PORTF &= ~(_BV(PORTF1)); break;
+		case 3: if (state) PORTF |= _BV(PORTF4); else PORTF &= ~(_BV(PORTF4)); break;
+		case 4: if (state) PORTF |= _BV(PORTF5); else PORTF &= ~(_BV(PORTF5)); break;
+		case 5: if (state) PORTC |= _BV(PORTC6); else PORTC &= ~(_BV(PORTC6)); break;
+		case 6: if (state) PORTC |= _BV(PORTC7); else PORTC &= ~(_BV(PORTC7)); break;
+		case 7: if (state) PORTF |= _BV(PORTF6); else PORTF &= ~(_BV(PORTF6)); break;
+		case 8: if (state) PORTF |= _BV(PORTF7); else PORTF &= ~(_BV(PORTF7)); break;
+		default: return;
 	}
 }
 
@@ -105,8 +98,8 @@ void zone_init(void) {
 
 	// Set outputs as required
 	DDRF = _BV(PORTF0) | _BV(PORTF1) | _BV(PORTF4) | _BV(PORTF5) | _BV(PORTF6) | _BV(PORTF7);
-	PORTF &= ~(_BV(PORTF0) | _BV(PORTF1) | _BV(PORTF4) | _BV(PORTF5) | _BV(PORTF6) | _BV(PORTF7));
-
 	DDRC = _BV(PORTC6) | _BV(PORTC7);
+
+	PORTF &= ~(_BV(PORTF0) | _BV(PORTF1) | _BV(PORTF4) | _BV(PORTF5) | _BV(PORTF6) | _BV(PORTF7));
 	PORTC &= ~(_BV(PORTC6) | _BV(PORTC7));
 }

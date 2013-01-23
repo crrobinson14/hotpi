@@ -18,7 +18,7 @@
 
 #include "crust.h"
 
-void zones_off(c
+void zones_off(void) {
 	zone_force_set(1, 0);
 	zone_force_set(2, 0);
 	zone_force_set(3, 0);
