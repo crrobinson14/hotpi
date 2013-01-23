@@ -18,18 +18,56 @@
 
 #include "crust.h"
 
+void zones_off(c
+	zone_force_set(1, 0);
+	zone_force_set(2, 0);
+	zone_force_set(3, 0);
+	zone_force_set(4, 0);
+	zone_force_set(5, 0);
+	zone_force_set(6, 0);
+	zone_force_set(7, 0);
+	zone_force_set(8, 0);
+}
+
+/**
+ * _delay_ms() can only delay up to 262.14/F_CPU(MHz), or 16.38 ms.
+ */
+void delay_sec(void) {
+	uint8_t counter;
+
+	for (counter = 0; counter < 100; counter++) {
+		_delay_ms(10);
+	}
+}
+
 int main(void)
 {
 	// Allow the power-supply to settle down, and initialize the CPU
 	clock_prescale_set(clock_div_128);
-	_delay_ms(10);
+	_delay_ms(16);
 	clock_prescale_set(clock_div_1);
 
 	// Initialize our subsystems
 	zone_init();
 	serial_init();
 
-	_delay_ms(100);
+	_delay_ms(16);
+
+	// Debugging code
+	while (1) {
+		uint8_t counter;
+
+		for (counter = 1; counter <= 8; counter++) {
+			zones_off();
+			zone_force_set(counter, 1);
+
+			delay_sec();
+			delay_sec();
+			delay_sec();
+			delay_sec();
+			delay_sec();
+		}
+	}
 
 	while(1) {
 		// Check the zone pins
