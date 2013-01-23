@@ -5,6 +5,8 @@
 *.slo
 *.lo
 *.o
+*.atsuo
+src/TcfTransactionLog.csv
 
 # Compiled Dynamic libraries
 *.so
