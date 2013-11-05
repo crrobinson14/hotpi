@@ -12,7 +12,7 @@ class Component:
     ctype = ndb.StringProperty()
 
     # The priority of the component, within its class.
-    priority = ndb.IntegerProperty()
+    priority = ndb.IntegerProperty(indexed=False, )
 
     # The state, for state-driven components, e.g. "Running" for a circulator or "DemandHeat" or "Heat" for a zone
     state = ndb.StringProperty()

@@ -85,4 +85,3 @@ class ct30():
             		self.status['set'] = 0
 	except:
 		pass
-

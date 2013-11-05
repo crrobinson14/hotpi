@@ -50,15 +50,5 @@ hotpiConfig = {
             'type': 'relay',
             'location': '/mnt/1wire/uncached/3A.438607000000',
         },
-        #'tankfill': {
-        #    'name': 'Fill Tank',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
-        #'tankdrain': {
-        #    'name': 'Drain Tank',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
     },
 }
