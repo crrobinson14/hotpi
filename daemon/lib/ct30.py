@@ -53,29 +53,35 @@ class ct30():
         if message == self.message:
             return
 
-        self.message = message
+	try:
+	        self.message = message
 
-        url = "http://%s/tstat/pma" % self.config['location']
-        data = {'message': str(message)}
-        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+	        url = "http://%s/tstat/pma" % self.config['location']
+        	data = {'message': str(message)}
+	        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-        r = requests.post(url, data=json.dumps(data), headers=headers)
+        	r = requests.post(url, data=json.dumps(data), headers=headers)
 
-        response = json.loads(r.text)
-        return response['success'] == 0
+	        response = json.loads(r.text)
+        	return response['success'] == 0
+	except:
+		pass
 
     def poll(self):
-        url = "http://%s/tstat" % self.config['location']
-        r = requests.get(url)
+	try:
+	        url = "http://%s/tstat" % self.config['location']
+	        r = requests.get(url)
 
-        self.status = json.loads(r.text)
+	        self.status = json.loads(r.text)
 
-        self.status['ledstate'] = self.ledstate
-        self.status['message'] = self.message
+	        self.status['ledstate'] = self.ledstate
+	        self.status['message'] = self.message
 
-        if self.status['tmode'] == 2:
-            self.status['set'] = self.status['t_cool']
-        elif self.status['tmode'] == 1:
-            self.status['set'] = self.status['t_heat']
-        else:
-            self.status['set'] = 0
+	        if self.status['tmode'] == 2:
+      			self.status['set'] = self.status['t_cool']
+        	elif self.status['tmode'] == 1:
+            		self.status['set'] = self.status['t_heat']
+        	else:
+            		self.status['set'] = 0
+	except:
+		pass

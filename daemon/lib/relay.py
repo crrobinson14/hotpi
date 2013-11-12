@@ -16,10 +16,16 @@ class relay():
                               'HIGH' if self.status['input'] == 1 else 'LOW')
 
     def set(self, state):
-        writeFileValue("%s/PIO.B" % self.config['location'], state)
+        try:
+            writeFileValue("%s/PIO.B" % self.config['location'], state)
+        except:
+            pass
 
     def poll(self):
-        self.status = {
-            'output': int(readFileValue("%s/PIO.B" % self.config['location'])),
-            'input': int(readFileValue("%s/sensed.A" % self.config['location'])),
-        }
+        try:
+            self.status = {
+                'output': int(readFileValue("%s/PIO.B" % self.config['location'])),
+                'input': int(readFileValue("%s/sensed.A" % self.config['location'])),
+            }
+        except:
+            pass

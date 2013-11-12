@@ -35,30 +35,20 @@ hotpiConfig = {
             'type': 'ct30',
             'location': '192.168.1.63',
         },
-        #'zonedown': {
-        #    'name': 'Downstairs Zone',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
-        #'zonefront': {
-        #    'name': 'Front Room Zone',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
-        #'zoneup': {
-        #    'name': 'Upstairs Zone',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
-        #'tankfill': {
-        #    'name': 'Fill Tank',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
-        #'tankdrain': {
-        #    'name': 'Drain Tank',
-        #    'type': 'relay',
-        #    'location': '/dev/null',
-        #},
+        'zonedown': {
+            'name': 'Downstairs Zone',
+            'type': 'relay',
+            'location': '/mnt/1wire/uncached/3A.D18707000000',
+        },
+        'zonefront': {
+            'name': 'Front Room Zone',
+            'type': 'relay',
+            'location': '/mnt/1wire/uncached/3A.C38707000000',
+        },
+        'zonebed': {
+            'name': 'Bedroom Zone',
+            'type': 'relay',
+            'location': '/mnt/1wire/uncached/3A.438607000000',
+        },
     },
 }
