@@ -26,3 +26,6 @@ src/honeybee/hotpi-honeybee
 src/crust/Debug
 src/crust/Release
 honeybridge/honeybridge
+
+nohup.out
+
