@@ -6,15 +6,6 @@ dmgr = deviceManager()
 thermostats = ['tstatdown', 'tstatbed', 'tstatfront']
 zones = ['zonedown', 'zonebed', 'zonefront']
 
-# Oil boilers are demand-driven systems. They're sized to produce a bit more
-# total output than the system's maximum total demand, and demand signals drive
-# them to fire.
-#
-# Wood systems are different. The fire can be damped but not "shut off", and
-# damping it down is very inefficient. Therefore it's important to extract as
-# much heat from it as efficiently as possible while the fire is burning. HotPi
-# 
-
 while True:
     dmgr.poll()
 
@@ -28,42 +19,53 @@ while True:
     zonefront = hotpiConfig['devices']['zonefront']['handler']
     zonebed = hotpiConfig['devices']['zonebed']['handler']
 
-    dmgr.get('wooddraft').set(0)
+    # dmgr.get('wooddraft').set(0)
 
     boilertemp = int(dmgr.get('boilertemp').status['temperature'])
     [dmgr.get(t).setMessage(boilertemp) for t in thermostats]
 
+    # Force all the zones open for now
     [dmgr.get(z).set(1) for z in zones]
 
-    if boilertemp < 100:
+    demand = (tstatfront.status['temp'] < 70)
+
+    if boilertemp < 125:
         # Below 125 we assume the boiler is off
-        print "Below 125"
+        dmgr.globalstat = "Below 125, offline"
         [dmgr.get(t).setLEDs(0) for t in thermostats]
         dmgr.get('woodcirc').set(0)
         dmgr.get('wooddraft').set(0)
 
     elif boilertemp < 145:
-        # Below 145 we assume the boiler is on, but not ready to heat
-        print "Below 145"
+        # Below 145 we try to preserve coals
+        dmgr.globalstat = "Below 145, preserving coals"
         [dmgr.get(t).setLEDs(2) for t in thermostats]
         dmgr.get('woodcirc').set(0)
-        # dmgr.get('wooddraft').set(1)
+        dmgr.get('wooddraft').set(0)
 
     elif boilertemp < 165:
-        print "Below 165"
+        # Below 165 we get the fire going
+        dmgr.globalstat = "Below 165, firing"
         [dmgr.get(t).setLEDs(2) for t in thermostats]
         dmgr.get('woodcirc').set(0)
-        dmgr.get('wooddraft').set(0)
+        dmgr.get('wooddraft').set(1)
 
     elif boilertemp < 185:
-        print "Below 185"
+        # From 165-186 we are demand driven. At the moment, "demand" is the
+        # "front room thermostat" until we add more logic.
         [dmgr.get(t).setLEDs(1) for t in thermostats]
-        # TODO: Set based on demand
-        dmgr.get('woodcirc').set(1)
-        dmgr.get('wooddraft').set(0)
+
+        if (demand):
+            dmgr.globalstat = "Below 185, demand, firing/circulating"
+            dmgr.get('woodcirc').set(1)
+            dmgr.get('wooddraft').set(1)
+        else:
+            dmgr.globalstat = "Below 185, no demand, standing by"
+            dmgr.get('woodcirc').set(0)
+            dmgr.get('wooddraft').set(0)
 
     else:
-        print "Above 185"
+        dmgr.globalstat = "Above 185, overheating, dumping heat"
         [dmgr.get(t).setLEDs(4) for t in thermostats]
         dmgr.get('woodcirc').set(1)
         dmgr.get('wooddraft').set(0)

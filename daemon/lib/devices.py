@@ -7,6 +7,8 @@ from files import *
 
 
 class deviceManager():
+    globalstat = ""
+
     def __init__(self):
         for key in hotpiConfig['devices'].keys():
             device = hotpiConfig['devices'][key]
@@ -29,6 +31,8 @@ class deviceManager():
 
             d = str(device['handler'])
             status = status + d + os.linesep
+
+        status = status + self.globalstat + os.linesep
 
         writeFileValue('/tmp/status.txt', status)
         print status
