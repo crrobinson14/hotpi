@@ -11,6 +11,16 @@
 </style>
 </head>
 <body>
+<?php
+    $f = file("/var/run/hotpi/status");
+    var_dump($f);
+
+    $status = array();
+    foreach ($f as $line) {
+        $fields = explode(',', $line);
+        $status[$fields[0]] = trim($fields[1]);
+    }
+?>
 <div data-role="page">
 	<div data-role="header" data-theme="a" data-fullscreen="true">
 		<h1>HotPi</h1>
@@ -22,18 +32,18 @@
         <table data-role="table" id="movie-table" class="table-stroke" data-mode="columntoggle"><thead>
             <tr><th>Zone</th><th>Temperature</th><th>Demand</th></tr>
         </thead><tbody>
-            <tr><th>Upstairs</th><td>72.0F</td><td>On</td></tr>
-            <tr><th>Downstairs</th><td>72.0F</td><td>On</td></tr>
-            <tr><th>Front Room</th><td>72.0F</td><td>On</td></tr>
+            <tr><th>Upstairs</th><td><?php print $status['upstairs']; ?>F</td><td>On</td></tr>
+            <tr><th>Downstairs</th><td><?php print $status['downstairs']; ?>F</td><td>On</td></tr>
+            <tr><th>Front Room</th><td><?php print $status['frontroom']; ?>F</td><td>On</td></tr>
         </tbody></table>
 
         <h3>Boiler</h3>
         <table data-role="table" id="movie-table" class="table-stroke" data-mode="columntoggle"><thead>
             <tr><th>Aspect</th><th>Status</th></tr>
         </thead><tbody>
-            <tr><th>Temperature</th><td>212.50F</td></tr>
-            <tr><th>Mode</th><td>Overheat: Dumping</td></tr>
-            <tr><th>Devices</th><td>Circ: ON, Draft: ON</td></tr>
+            <tr><th>Temperature</th><td><?php print $status['boiler']; ?>F</td></tr>
+            <tr><th>Mode</th><td><?php print $status['mode']; ?></td></tr>
+            <tr><th>Devices</th><td><?php print $status['devices']; ?></td></tr>
         </tbody></table>
 
 	</div><!-- /content -->

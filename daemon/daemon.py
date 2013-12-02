@@ -83,8 +83,8 @@ devices,Circ: %s Draft: %s\n" % (
         tstatfront.status['temp'],
         dmgr.get('boilertemp').status['temperature'],
         dmgr.globalstat,
-        'ON' if dmgr.get('woodcirc').status['output'] is 0 else 'OFF',
-        'ON' if dmgr.get('wooddraft').status['output'] is 0 else 'OFF')
+        'ON' if dmgr.get('woodcirc').status['output'] is 1 else 'OFF',
+        'ON' if dmgr.get('wooddraft').status['output'] is 1 else 'OFF')
     writeFileValue('/var/run/hotpi/status', status)
 
     time.sleep(10)
