@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="refresh" content="30">
 <title>HotPi</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<script src="/app.js"></script>
 <style type="text/css">
 .ui-table-columntoggle-btn { display: none; }
 </style>
 </head>
 <body>
 <?php
-    $f = file("/var/run/hotpi/status");
-    var_dump($f);
-
     $status = array();
-    foreach ($f as $line) {
+    foreach (file("/var/run/hotpi/status") as $line) {
         $fields = explode(',', $line);
         $status[$fields[0]] = trim($fields[1]);
     }
+
+	$coldstart = intval(@file_get_contents('/var/run/hotpi/coldstart'));
+	$quietmode = intval(@file_get_contents('/var/run/hotpi/quietmode'));
 ?>
 <div data-role="page">
 	<div data-role="header" data-theme="a" data-fullscreen="true">
@@ -50,7 +52,7 @@
 
 
 	<div data-role="footer">
-		<h4>Page Footer</h4>
+		<h4>System Status</h4>
 	</div><!-- /footer -->
 
     <div data-role="panel" id="panel-nav" class="jqm-nav-panel" data-position="left" data-display="reveal" data-theme="a">
@@ -59,16 +61,16 @@
             <form>
                 <fieldset data-role="controlgroup">
                     <!--legend>Settings:</legend>-->
-                    <input type="checkbox" name="checkbox-quiet" id="checkbox-quiet">
+                    <input type="checkbox" name="checkbox-quiet" id="checkbox-quiet" <?php print ($quietmode) ? 'checked="checked"' : ''?>>
                     <label for="checkbox-quiet">Quiet Mode</label>
-                    <input type="checkbox" name="checkbox-coldstart" id="checkbox-coldstart">
+                    <input type="checkbox" name="checkbox-coldstart" id="checkbox-coldstart" <?php print ($coldstart) ? 'checked="checked"' : ''?>>
                     <label for="checkbox-coldstart">Cold Start</label>
                 </fieldset>
             </form>
 
-            <a href="#demo-links" data-rel="close" data-role="button" data-theme="a"
+            <!--<a href="#demo-links" data-rel="close" data-role="button" data-theme="a"
                data-icon="delete" data-inline="true" data-corners="true"
-               data-shadow="true" data-iconshadow="true" data-wrapperels="span">Close panel</a>
+               data-shadow="true" data-iconshadow="true" data-wrapperels="span">Close panel</a>-->
         </div>
 
         <!--<ul data-role="listview" data-inset="false" data-filter="true" data-theme="a" data-divider-theme="a"  data-icon="false" data-filter-placeholder="Search..." class="jqm-list">

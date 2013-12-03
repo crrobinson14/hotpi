@@ -53,7 +53,7 @@ hotpiConfig = {
         'quietmode': {
             'name': 'Quiet Mode',
             'type': 'semaphore',
-            'filename': '/run/hotpi/quiet',
+            'filename': '/run/hotpi/quietmode',
         },
         'coldstart': {
             'name': 'Cold Start',
