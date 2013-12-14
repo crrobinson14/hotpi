@@ -32,7 +32,7 @@ while True:
     # Force all the zones open for now
     [dmgr.get(z).set(1) for z in zones]
 
-    demand = (tstatfront.status['temp'] < 70)
+    demand = (tstatfront.status['temp'] < 72)
 
     USEDRAFT = 1 if quietmode.state is 0 else 0
 
@@ -85,6 +85,12 @@ while True:
             dmgr.get('woodcirc').set(0)
             dmgr.get('wooddraft').set(0)
 
+    elif boilertemp < 195:
+        dmgr.globalstat = "High Limit, Circulating"
+        [dmgr.get(t).setLEDs(1) for t in thermostats]
+        dmgr.get('woodcirc').set(1)
+        dmgr.get('wooddraft').set(0)
+
     else:
         dmgr.globalstat = "Overheat (Dumping)"
         [dmgr.get(t).setLEDs(4) for t in thermostats]
@@ -104,7 +110,7 @@ devices,Circ: %s Draft: %s\n" % (
         dmgr.globalstat,
         'ON' if dmgr.get('woodcirc').status['output'] is 1 else 'OFF',
         'ON' if dmgr.get('wooddraft').status['output'] is 1 else 'OFF')
-    print status
+
     writeFileValue('/var/run/hotpi/status', status)
 
     time.sleep(10)

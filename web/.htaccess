@@ -1,0 +1,5 @@
+AuthUserFile /opt/hotpi/htpasswd
+AuthType Basic
+AuthName "HotPi"
+Require valid-user
+
