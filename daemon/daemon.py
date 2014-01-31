@@ -27,12 +27,13 @@ while True:
     # dmgr.get('wooddraft').set(0)
 
     boilertemp = int(dmgr.get('boilertemp').status['temperature'])
+    returntemp = int(dmgr.get('returntemp').status['temperature'])
     [dmgr.get(t).setMessage(boilertemp) for t in thermostats]
 
     # Force all the zones open for now
     [dmgr.get(z).set(1) for z in zones]
 
-    demand = (tstatfront.status['temp'] < 72)
+    demand = (tstatfront.status['temp'] < 71)
 
     USEDRAFT = 1 if quietmode.state is 0 else 0
 
@@ -101,12 +102,14 @@ while True:
 downstairs,%.2f\n\
 frontroom,%.2f\n\
 boiler,%.2f\n\
+return,%.2f\n\
 mode,%s\n\
 devices,Circ: %s Draft: %s\n" % (
         tstatbed.status['temp'],
         tstatdown.status['temp'],
         tstatfront.status['temp'],
         dmgr.get('boilertemp').status['temperature'],
+        dmgr.get('returntemp').status['temperature'],
         dmgr.globalstat,
         'ON' if dmgr.get('woodcirc').status['output'] is 1 else 'OFF',
         'ON' if dmgr.get('wooddraft').status['output'] is 1 else 'OFF')

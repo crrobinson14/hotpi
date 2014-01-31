@@ -44,6 +44,7 @@
             <tr><th>Aspect</th><th>Status</th></tr>
         </thead><tbody>
             <tr><th>Temperature</th><td><?php print $status['boiler']; ?>F</td></tr>
+            <tr><th>Return</th><td><?php print $status['return']; ?>F</td></tr>
             <tr><th>Mode</th><td><?php print $status['mode']; ?></td></tr>
             <tr><th>Devices</th><td><?php print $status['devices']; ?></td></tr>
         </tbody></table>
