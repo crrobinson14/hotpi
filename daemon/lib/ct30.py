@@ -38,14 +38,17 @@ class ct30():
 
         self.ledstate = state
 
-        url = "http://%s/tstat/led" % self.config['location']
-        data = {'energy_led': int(state)}
-        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+	try:
+	        url = "http://%s/tstat/led" % self.config['location']
+        	data = {'energy_led': int(state)}
+	        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-        r = requests.post(url, data=json.dumps(data), headers=headers)
+        	r = requests.post(url, data=json.dumps(data), headers=headers)
 
-        response = json.loads(r.text)
-        return response['success'] == 0
+	        response = json.loads(r.text)
+	        return response['success'] == 0
+	except:
+		pass
 
     def setMessage(self, message):
         # The CT-30 doesn't like it if we write too much, so only do the change

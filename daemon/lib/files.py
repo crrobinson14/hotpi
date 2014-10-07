@@ -1,3 +1,7 @@
+import requests
+import json
+
+
 def readFileValue(filename):
     f = open(filename)
     outval = f.read()

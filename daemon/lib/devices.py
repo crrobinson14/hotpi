@@ -3,10 +3,13 @@ from config import hotpiConfig
 from ds18b20 import ds18b20
 from ct30 import ct30
 from relay import relay
+from semafile import semafile
 from files import *
 
 
 class deviceManager():
+    globalstat = ""
+
     def __init__(self):
         for key in hotpiConfig['devices'].keys():
             device = hotpiConfig['devices'][key]
@@ -20,6 +23,9 @@ class deviceManager():
             elif device['type'] == 'relay':
                 device['handler'] = relay(device)
 
+            elif device['type'] == 'semaphore':
+                device['handler'] = semafile(device)
+
     def poll(self):
         print "Polling..."
         status = ""
@@ -29,6 +35,8 @@ class deviceManager():
 
             d = str(device['handler'])
             status = status + d + os.linesep
+
+        status = status + self.globalstat + os.linesep
 
         writeFileValue('/tmp/status.txt', status)
         print status

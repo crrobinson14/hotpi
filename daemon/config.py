@@ -50,5 +50,15 @@ hotpiConfig = {
             'type': 'relay',
             'location': '/mnt/1wire/uncached/3A.438607000000',
         },
+        'quietmode': {
+            'name': 'Quiet Mode',
+            'type': 'semaphore',
+            'filename': '/run/hotpi/quietmode',
+        },
+        'coldstart': {
+            'name': 'Cold Start',
+            'type': 'semaphore',
+            'filename': '/run/hotpi/coldstart',
+        }
     },
 }

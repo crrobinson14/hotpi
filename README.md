@@ -21,3 +21,6 @@ LEGAL NOTICE: No warranties are made, expressed or implied,
 as to the usability, merchantability, or performance of the
 hardware or software provided in this project. All use is at
 your own risk.
+
+
+[![Analytics](https://ga-beacon.appspot.com/UA-65268-25/hotpi/README.md)](https://github.com/igrigorik/ga-beacon)
