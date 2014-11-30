@@ -24,6 +24,7 @@ while True:
 
     coldstart = hotpiConfig['devices']['coldstart']['handler']
     quietmode = hotpiConfig['devices']['quietmode']['handler']
+    endcycle = hotpiConfig['devices']['endcycle']['handler']
 
     # dmgr.get('wooddraft').set(0)
 
@@ -58,6 +59,11 @@ while True:
             [dmgr.get(t).setLEDs(0) for t in thermostats]
             dmgr.get('woodcirc').set(0)
             dmgr.get('wooddraft').set(USEDRAFT)
+        elif endcycle.state is 1:
+            dmgr.globalstat = "Below 145 (END CYCLE)"
+            [dmgr.get(t).setLEDs(0) for t in thermostats]
+            dmgr.get('woodcirc').set(1)
+            dmgr.get('wooddraft').set(0)            
         else:
             # Below 145 we try to preserve coals
             dmgr.globalstat = "Below 145 (Preserving Coals)"
@@ -66,12 +72,18 @@ while True:
             dmgr.get('wooddraft').set(0)
 
     elif boilertemp < 165:
-        # Below 165 we get the fire going
-        dmgr.globalstat = "Below 165 (Firing)"
-        coldstart.setState(0)
-        [dmgr.get(t).setLEDs(2) for t in thermostats]
-        dmgr.get('woodcirc').set(0)
-        dmgr.get('wooddraft').set(USEDRAFT)
+        if endcycle.state is 1:
+            dmgr.globalstat = "Below 165 (END CYCLE)"
+            [dmgr.get(t).setLEDs(0) for t in thermostats]
+            dmgr.get('woodcirc').set(1)
+            dmgr.get('wooddraft').set(0)            
+        else:
+            # Below 165 we get the fire going
+            dmgr.globalstat = "Below 165 (Firing)"
+            coldstart.setState(0)
+            [dmgr.get(t).setLEDs(2) for t in thermostats]
+            dmgr.get('woodcirc').set(0)
+            dmgr.get('wooddraft').set(USEDRAFT)
 
     elif boilertemp < 185:
         # From 165-186 we are demand driven. At the moment, "demand" is the

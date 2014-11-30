@@ -22,6 +22,7 @@
 
 	$coldstart = intval(@file_get_contents('/var/run/hotpi/coldstart'));
 	$quietmode = intval(@file_get_contents('/var/run/hotpi/quietmode'));
+	$endcycle = intval(@file_get_contents('/var/run/hotpi/endcycle'));
 ?>
 <div data-role="page">
 	<div data-role="header" data-theme="a" data-fullscreen="true">
@@ -66,6 +67,8 @@
                     <label for="checkbox-quiet">Quiet Mode</label>
                     <input type="checkbox" name="checkbox-coldstart" id="checkbox-coldstart" <?php print ($coldstart) ? 'checked="checked"' : ''?>>
                     <label for="checkbox-coldstart">Cold Start</label>
+                    <input type="checkbox" name="checkbox-endcycle" id="checkbox-endcycle" <?php print ($endcycle) ? 'checked="checked"' : ''?>>
+                    <label for="checkbox-endcycle">End Cycle</label>
                 </fieldset>
             </form>
 

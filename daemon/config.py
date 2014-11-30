@@ -55,6 +55,11 @@ hotpiConfig = {
             'type': 'semaphore',
             'filename': '/run/hotpi/quietmode',
         },
+        'endcycle': {
+            'name': 'End Cycle',
+            'type': 'semaphore',
+            'filename': '/run/hotpi/endcycle',
+        },
         'coldstart': {
             'name': 'Cold Start',
             'type': 'semaphore',

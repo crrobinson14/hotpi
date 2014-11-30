@@ -32,6 +32,18 @@ $(document).ready(function() {
                     }
                 });
                 break;
+
+            case 'checkbox-endcycle':
+                setting.setting = 'endcycle';
+                $.ajax({
+                    url: '/api.php',
+                    data: setting,
+                    timeout: 5000,
+                    success: function() {
+                        window.location.reload();
+                    }
+                });
+                break;
         }
     });
 });
