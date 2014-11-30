@@ -5,7 +5,8 @@ from lib.files import *
 
 dmgr = deviceManager()
 thermostats = ['tstatdown', 'tstatbed', 'tstatfront']
-zones = ['zonedown', 'zonebed', 'zonefront']
+#zones = ['zonedown', 'zonebed', 'zonefront']
+zones = ['zonedown', 'zonebed']
 
 while True:
     dmgr.poll()
@@ -33,7 +34,8 @@ while True:
     # Force all the zones open for now
     [dmgr.get(z).set(1) for z in zones]
 
-    demand = (tstatfront.status['temp'] < 71)
+    demand = (tstatbed.status['temp'] < 71)
+    # demand = True;
 
     USEDRAFT = 1 if quietmode.state is 0 else 0
 
